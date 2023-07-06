@@ -3,23 +3,16 @@ import HomeIllustration from '../../assets/home_illustration.png'
 import annonces from '../../data/annonces.json'
 import Card from '../../components/Card'
 import colors from '../../utils/style/colors'
+import { Banner } from '../../utils/style/Atoms'
 
 
 const IllustrationContainer = styled.div`
   position: relative;
 `
 
-const Illustration = styled.img`
-  object-fit: cover;
-  width: 100%;
-  height: 223px;
-  border-radius: 25px;
-  filter: brightness(0.7);
-`
-
 const StyledTitle = styled.h1`
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
@@ -45,7 +38,7 @@ function Home() {
   return (
     <div>
     <IllustrationContainer>
-      <Illustration src={HomeIllustration} />
+      <Banner src={HomeIllustration} />
       <StyledTitle>Chez vous, partout et ailleurs</StyledTitle>
     </IllustrationContainer>
     <CardContainer>

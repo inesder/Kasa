@@ -18,3 +18,11 @@ export const StyledLink = styled(Link)`
     border-radius: 30px; 
     background-color: ${colors.primary};`}
 `
+
+export const Banner = styled.img`
+  object-fit: cover;
+  width: 100%;
+  height: 223px;
+  border-radius: 25px;
+  filter: brightness(0.7);
+`
