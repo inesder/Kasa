@@ -7,10 +7,22 @@ import HousingPage from './pages/HousingPage'
 import ErrorPage from './pages/ErrorPage'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import { createGlobalStyle } from 'styled-components'
+
+
+const GlobalStyle = createGlobalStyle`
+    * {
+      font-family: 'Montserrat', Helvetica, sans-serif;
+    }
+    body {
+      margin: 40px 100px;
+    }
+`
  
 ReactDOM.render(
     <React.StrictMode>
         <Router>
+            <GlobalStyle />
             <Header />
             <Routes>
                 <Route path="/" element={<Home />} />
