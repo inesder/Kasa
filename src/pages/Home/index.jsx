@@ -14,7 +14,6 @@ const Illustration = styled.img`
   width: 100%;
   height: 223px;
   border-radius: 25px;
-  margin-top: 60px;
   filter: brightness(0.7);
 `
 
@@ -55,6 +54,7 @@ function Home() {
         key={annonce.id}
         label={annonce.title}
         cover={annonce.cover}
+        id={annonce.id}
         />
       ))}
     </CardContainer>

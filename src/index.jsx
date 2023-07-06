@@ -8,30 +8,38 @@ import ErrorPage from './pages/ErrorPage'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { createGlobalStyle } from 'styled-components'
-
+import styled from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
     * {
       font-family: 'Montserrat', Helvetica, sans-serif;
     }
     body {
-      margin: 40px 100px;
+        margin:0;
     }
+    
 `
- 
+
+const MainContainer = styled.div`
+margin:40px 200px
+`
+
 ReactDOM.render(
-    <React.StrictMode>
-        <Router>
-            <GlobalStyle />
-            <Header />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<AboutPage />}/>
-                <Route path='/housing' element={<HousingPage />} />
-                <Route path='*' element={<ErrorPage />} />
-            </Routes>
-            <Footer />
-        </Router>
-    </React.StrictMode>,
-document.getElementById('root')
+  <React.StrictMode>
+    <Router>
+      <GlobalStyle />
+      <MainContainer>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/housing/:id" element={<HousingPage />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+      </MainContainer>
+      <Footer />
+    </Router>
+  </React.StrictMode>,
+  document.getElementById('root')
 )

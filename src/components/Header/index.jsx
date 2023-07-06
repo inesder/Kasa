@@ -8,10 +8,11 @@ const HomeLogo = styled.img`
 `
 
 const NavContainer = styled.nav`
-  padding-top: 40px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 60px;
 `
 
 function Header() {
