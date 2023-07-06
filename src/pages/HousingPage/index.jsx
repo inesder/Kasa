@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
 import colors from '../../utils/style/colors'
 import StarRating from '../../components/StarRating'
-import Collapse from '../../components/Collapsible'
+import Collapsible from '../../components/Collapsible'
 
 const HouseImage = styled.img`
   width: 100%;
@@ -70,6 +70,11 @@ display: flex;
 justify-content: space-between;
 margin-top: 20px;
 `
+const CollapseMenu = styled.div`
+  overflow: hidden;
+  width: 45%;
+  `
+
 const StyledEquipment= styled.p`
 margin:0;`
 
@@ -110,15 +115,19 @@ function HousingPage() {
           </OwnerProfile>
         </div>
       </PropertyContainer>
-      <CollapsibleContainer>
-      <Collapse title='Description'>
+      <CollapsibleContainer><CollapseMenu>
+      <Collapsible title='Description'>
+        
       <p>{description}</p>
-      </Collapse>
-      <Collapse title='Equipements'>
+      </Collapsible></CollapseMenu>
+      <CollapseMenu>
+      <Collapsible title='Equipements'>
+      <CollapseMenu>
         {equipments.map((equipment)=> (
             <StyledEquipment>{equipment}</StyledEquipment>
         ))}
-      </Collapse>
+        </CollapseMenu>
+      </Collapsible></CollapseMenu>
       </CollapsibleContainer>
     </div>
   )

@@ -12,6 +12,7 @@ const CollapseButton = styled.button`
   text-align: left;
   outline: none;
   font-size: 18px;
+  border-radius:10px;
 `;
 
 const CollapseContent = styled.div`
@@ -31,11 +32,6 @@ ${({ active }) =>
   `}
 `;
 
-const CollapseContainer = styled.div`
-  border-radius: 10px;
-  overflow: hidden;
-  width: 45%;
-`;
 
 const Collapse = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,12 +41,12 @@ const Collapse = ({ title, children }) => {
   };
 
   return (
-    <CollapseContainer>
+  <div>
       <CollapseButton active={isOpen} onClick={handleToggle}>
         {title}
       </CollapseButton>
       <CollapseContent active={isOpen}>{children}</CollapseContent>
-    </CollapseContainer>
+    </div>
   );
 };
 
