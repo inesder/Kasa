@@ -20,6 +20,10 @@ const PropertyContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+  
 `
 
 const StyledTitle = styled.h2`
@@ -45,6 +49,12 @@ const OwnerProfile = styled.div`
   gap: 50px;
   align-items: end;
   flex-direction: column;
+  @media screen and (max-width: 768px) {
+    flex-direction: row-reverse;
+    justify-content: left;
+    justify-content: space-between;
+    align-items: center;
+  }
 `
 const OwnerInfo = styled.div`
   display: flex;
@@ -67,10 +77,17 @@ const CollapsibleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  @media screen and (max-width: 768px) {
+   flex-direction: column;
+   gap: 20px;
+  }
 `
 const CollapseMenu = styled.div`
   overflow: hidden;
   width: 45%;
+  @media screen and (max-width: 768px) {
+    width: 100%
+   }
 `
 
 const StyledEquipment = styled.p`

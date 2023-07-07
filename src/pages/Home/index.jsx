@@ -18,19 +18,27 @@ const StyledTitle = styled.h1`
   font-size: 48px;
   text-align: center;
   font-weight: 500;
+  @media screen and (max-width: 768px) {
+    text-align: left;
+    left:33%;
+    width:56%;
+    font-size: 35px;
+  }
+
 `
 
 const CardContainer = styled.div`
-  display: grid;
-  gap: 30px;
-  grid-template-rows: 350px 350px;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-  justify-items: center;
-  background-color: ${colors.backgroundLight};
-  border-radius: 30px;
-  margin-top: 40px;
-  padding-top: 50px;
+display: flex;
+flex-wrap: wrap;
+gap: 70px;
+justify-content: center;
+background-color: ${colors.backgroundLight};
+border-radius: 30px;
+margin-top: 40px;
+padding: 50px;
+@media screen and (max-width: 768px) {
+  padding: 0;
+}
 `
 
 function Home() {

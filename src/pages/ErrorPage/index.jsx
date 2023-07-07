@@ -7,16 +7,28 @@ const ErrorContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    margin-top: 200px ;
+   }
 `
 
 const ErrorTitle = styled.h2`
   font-size: 288px;
   margin: 0;
+  @media screen and (max-width: 768px) {
+    font-size:100px;
+   }
 `
 
 const ErrorMessage = styled.p`
   font-size: 36px;
   margin-bottom: 180px;
+  @media screen and (max-width: 768px) {
+    font-size:25px;
+    text-align: center;
+    font-weight: 500;
+   }
+
 `
 
 function ErrorPage() {

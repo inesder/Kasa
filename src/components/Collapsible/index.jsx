@@ -37,6 +37,8 @@ const CollapseContent = styled.div`
     `}
 `
 
+
+
 const ArrowImage = styled.img``
 
 const Collapse = ({ title, children }) => {

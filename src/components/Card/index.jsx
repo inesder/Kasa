@@ -27,6 +27,9 @@ const CardWrapper = styled.div`
     border-radius: 10px;
     pointer-events: none;
   }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `
 const CardImage = styled.img`
   border-radius: 10px;
@@ -34,6 +37,9 @@ const CardImage = styled.img`
   height: 340px;
   object-fit: cover;
   z-index: 0;
+  @media screen and (max-width: 768px) {
+    width:100%
+  }
 `
 const TitleContainer = styled.div`
   position: absolute;

@@ -7,7 +7,7 @@ const CollapseContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin: 50px 150px;
+  margin-top: 30px;
 `
 
 function AboutPage() {

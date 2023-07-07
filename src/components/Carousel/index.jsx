@@ -18,15 +18,25 @@ const CarouselButton = styled.button`
   transform: translateY(-50%);
   z-index: 1;
   cursor: pointer;
+  
 `
 
 const PreviousButton = styled(CarouselButton)`
   left: 10px;
+  
 `
 
 const NextButton = styled(CarouselButton)`
   right: 10px;
 `
+const ArrowImg = styled.img`
+
+@media screen and (max-width: 768px) {
+    width: 18px;
+  }
+
+`
+  
 const CarouselCounter = styled.div`
   position: absolute;
   bottom: 10px;
@@ -35,6 +45,9 @@ const CarouselCounter = styled.div`
   font-size: 25px;
   z-index: 1;
   font-weight: 500;
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+  }
 `
 
 function Carousel({ images }) {
@@ -53,7 +66,7 @@ function Carousel({ images }) {
   return (
     <CarouselContainer>
       <PreviousButton onClick={handlePrevious}>
-        <img src={PreviousImage} alt="Previous" />
+        <ArrowImg src={PreviousImage} alt="Previous" />
       </PreviousButton>
       <img
         className="carousel-image"
@@ -61,7 +74,7 @@ function Carousel({ images }) {
         alt={`Apartment interior ${currentImageIndex}`}
       />
       <NextButton onClick={handleNext}>
-        <img src={NextImage} alt="Next" />
+        <ArrowImg src={NextImage} alt="Next" />
       </NextButton>
       <CarouselCounter>{`${currentImageIndex + 1}/${
         images.length

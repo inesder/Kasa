@@ -22,7 +22,12 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const MainContainer = styled.div`
-  margin: 40px 300px;
+  margin: 5vw 10vw;
+
+  @media screen and (max-width: 768px) {
+    margin: 3vw 5vw;
+  }
+
 `
 
 ReactDOM.render(

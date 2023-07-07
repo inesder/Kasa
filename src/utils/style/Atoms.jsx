@@ -25,4 +25,5 @@ export const Banner = styled.img`
   height: 223px;
   border-radius: 25px;
   filter: brightness(0.7);
+  
 `
