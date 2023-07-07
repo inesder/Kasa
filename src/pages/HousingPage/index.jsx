@@ -1,20 +1,21 @@
 import annonces from '../../data/annonces.json'
 import styled from 'styled-components'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import colors from '../../utils/style/colors'
 import StarRating from '../../components/StarRating'
 import Collapsible from '../../components/Collapsible'
 import Tag from '../../components/Tag'
 import Carousel from '../../components/Carousel'
+import { useEffect } from 'react'
 
 const StyledCarousel = styled.div`
-.carousel-image{
-width: 100%;
-height: 415px;
-object-fit: cover;
-border-radius: 25px;
-}
-` 
+  .carousel-image {
+    width: 100%;
+    height: 415px;
+    object-fit: cover;
+    border-radius: 25px;
+  }
+`
 const PropertyContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -63,21 +64,35 @@ const OwnerPicture = styled.img`
 `
 
 const CollapsibleContainer = styled.div`
-display: flex;
-justify-content: space-between;
-margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 `
 const CollapseMenu = styled.div`
   overflow: hidden;
   width: 45%;
-  `
+`
 
-const StyledEquipment= styled.p`
-margin:0;`
+const StyledEquipment = styled.p`
+  margin: 0;
+`
 
 function HousingPage() {
   const { id } = useParams()
+  const navigate = useNavigate()
+
   const apartment = annonces.find((annonce) => annonce.id === id)
+
+  useEffect(() => {
+    if (!apartment) {
+      navigate('/error')
+    }
+  }, [apartment, navigate])
+
+  if (!apartment) {
+    return null
+  }
+
   const {
     title,
     location,
@@ -86,14 +101,13 @@ function HousingPage() {
     host: { name, picture },
     description,
     equipments,
-    pictures
+    pictures,
   } = apartment
-
 
   return (
     <div>
       <StyledCarousel>
-      <Carousel images={pictures} />
+        <Carousel images={pictures} />
       </StyledCarousel>
       <PropertyContainer>
         <div>
@@ -115,19 +129,21 @@ function HousingPage() {
           </OwnerProfile>
         </div>
       </PropertyContainer>
-      <CollapsibleContainer><CollapseMenu>
-      <Collapsible title='Description'>
-        
-      <p>{description}</p>
-      </Collapsible></CollapseMenu>
-      <CollapseMenu>
-      <Collapsible title='Equipements'>
-      <CollapseMenu>
-        {equipments.map((equipment)=> (
-            <StyledEquipment>{equipment}</StyledEquipment>
-        ))}
+      <CollapsibleContainer>
+        <CollapseMenu>
+          <Collapsible title="Description">
+            <p>{description}</p>
+          </Collapsible>
         </CollapseMenu>
-      </Collapsible></CollapseMenu>
+        <CollapseMenu>
+          <Collapsible title="Equipements">
+            <CollapseMenu>
+              {equipments.map((equipment) => (
+                <StyledEquipment>{equipment}</StyledEquipment>
+              ))}
+            </CollapseMenu>
+          </Collapsible>
+        </CollapseMenu>
       </CollapsibleContainer>
     </div>
   )

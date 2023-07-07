@@ -8,7 +8,6 @@ const HomeLogo = styled.img`
 `
 
 const NavContainer = styled.nav`
-
   display: flex;
   justify-content: space-between;
   align-items: center;

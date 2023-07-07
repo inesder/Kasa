@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const MainContainer = styled.div`
-margin:40px 200px
+  margin: 40px 300px;
 `
 
 ReactDOM.render(
@@ -30,13 +30,14 @@ ReactDOM.render(
     <Router>
       <GlobalStyle />
       <MainContainer>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/housing/:id" element={<HousingPage />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/housing/:id" element={<HousingPage />} />
+          <Route path="/error" element={<ErrorPage />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
       </MainContainer>
       <Footer />
     </Router>

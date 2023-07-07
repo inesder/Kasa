@@ -5,7 +5,6 @@ import Card from '../../components/Card'
 import colors from '../../utils/style/colors'
 import { Banner } from '../../utils/style/Atoms'
 
-
 const IllustrationContainer = styled.div`
   position: relative;
 `
@@ -22,7 +21,7 @@ const StyledTitle = styled.h1`
 `
 
 const CardContainer = styled.div`
-display: grid;
+  display: grid;
   gap: 30px;
   grid-template-rows: 350px 350px;
   grid-template-columns: repeat(3, 1fr);
@@ -37,20 +36,20 @@ display: grid;
 function Home() {
   return (
     <div>
-    <IllustrationContainer>
-      <Banner src={HomeIllustration} />
-      <StyledTitle>Chez vous, partout et ailleurs</StyledTitle>
-    </IllustrationContainer>
-    <CardContainer>
-      {annonces.map((annonce) => (
-        <Card 
-        key={annonce.id}
-        label={annonce.title}
-        cover={annonce.cover}
-        id={annonce.id}
-        />
-      ))}
-    </CardContainer>
+      <IllustrationContainer>
+        <Banner src={HomeIllustration} />
+        <StyledTitle>Chez vous, partout et ailleurs</StyledTitle>
+      </IllustrationContainer>
+      <CardContainer>
+        {annonces.map((annonce) => (
+          <Card
+            key={annonce.id}
+            label={annonce.title}
+            cover={annonce.cover}
+            id={annonce.id}
+          />
+        ))}
+      </CardContainer>
     </div>
   )
 }

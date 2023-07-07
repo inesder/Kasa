@@ -9,7 +9,7 @@ export const StyledLink = styled(Link)`
   font-size: 24px;
   font-weight: 500;
   text-align: center;
-  &:hover{
+  &:hover {
     text-decoration: underline;
   }
   ${(props) =>
