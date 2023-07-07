@@ -1,9 +1,13 @@
 import styled, { css } from 'styled-components'
 import { useState } from 'react';
 import colors from '../../utils/style/colors';
+import BottomArrow from '../../assets/bottom.png'
+import UpArrow from '../../assets/top.png'
 
 const CollapseButton = styled.button`
   background-color: ${colors.primary};
+  justify-content: space-between;
+  align-items: center;
   color: white;
   cursor: pointer;
   padding: 18px;
@@ -13,6 +17,8 @@ const CollapseButton = styled.button`
   outline: none;
   font-size: 18px;
   border-radius:10px;
+  display:flex;
+  font-weight: 500;
 `;
 
 const CollapseContent = styled.div`
@@ -32,6 +38,10 @@ ${({ active }) =>
   `}
 `;
 
+const ArrowImage = styled.img`
+  
+`;
+
 
 const Collapse = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,10 +53,12 @@ const Collapse = ({ title, children }) => {
   return (
   <div>
       <CollapseButton active={isOpen} onClick={handleToggle}>
-        {title}
+        <span>{title}</span>
+        <ArrowImage src={isOpen ? UpArrow : BottomArrow} alt="Toggle collapse"/>
       </CollapseButton>
       <CollapseContent active={isOpen}>{children}</CollapseContent>
     </div>
+
   );
 };
 
