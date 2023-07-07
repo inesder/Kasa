@@ -4,13 +4,17 @@ import { useParams } from 'react-router-dom'
 import colors from '../../utils/style/colors'
 import StarRating from '../../components/StarRating'
 import Collapsible from '../../components/Collapsible'
+import Tag from '../../components/Tag'
+import Carousel from '../../components/Carousel'
 
-const HouseImage = styled.img`
-  width: 100%;
-  height: 415px;
-  object-fit: cover;
-  border-radius: 25px;
-`
+const StyledCarousel = styled.div`
+.carousel-image{
+width: 100%;
+height: 415px;
+object-fit: cover;
+border-radius: 25px;
+}
+` 
 const PropertyContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -35,13 +39,6 @@ const StyledTagContainer = styled.div`
   gap: 10px;
 `
 
-const StyledTag = styled.p`
-  background-color: ${colors.primary};
-  color: white;
-  border-radius: 15px;
-  font-size: 16px;
-  padding: 5px 25px;
-`
 const OwnerProfile = styled.div`
   display: flex;
   gap: 50px;
@@ -82,7 +79,6 @@ function HousingPage() {
   const { id } = useParams()
   const apartment = annonces.find((annonce) => annonce.id === id)
   const {
-    cover,
     title,
     location,
     tags,
@@ -90,18 +86,22 @@ function HousingPage() {
     host: { name, picture },
     description,
     equipments,
+    pictures
   } = apartment
+
 
   return (
     <div>
-      <HouseImage src={cover} alt={title}></HouseImage>
+      <StyledCarousel>
+      <Carousel images={pictures} />
+      </StyledCarousel>
       <PropertyContainer>
         <div>
           <StyledTitle>{title}</StyledTitle>
           <StyledLocation>{location}</StyledLocation>
           <StyledTagContainer>
             {tags.map((tag) => (
-              <StyledTag>{tag}</StyledTag>
+              <Tag tag={tag} />
             ))}
           </StyledTagContainer>
         </div>

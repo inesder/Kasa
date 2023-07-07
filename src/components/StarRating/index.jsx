@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { FaStar } from 'react-icons/fa';
 
+
 const StarIcon = styled.div`
   color: ${props => (props.filled ? '#FF6060' : '#F6F6F6')};
   padding: 5px;
