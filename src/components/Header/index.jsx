@@ -5,6 +5,9 @@ import Logo from '../../assets/LOGO.svg'
 
 const HomeLogo = styled.img`
   height: 70px;
+  @media screen and (max-width: 768px) {
+    height:30px
+  }
 `
 
 const NavContainer = styled.nav`
@@ -12,6 +15,13 @@ const NavContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 60px;
+
+`
+
+const NavLinks = styled(StyledLink)`
+  @media screen and (max-width: 768px) {
+    font-size: 17px;
+  }
 `
 
 function Header() {
@@ -21,8 +31,8 @@ function Header() {
         <HomeLogo src={Logo} />
       </Link>
       <div>
-        <StyledLink to="/">Accueil</StyledLink>
-        <StyledLink to="/about">A propos</StyledLink>
+        <NavLinks to="/">Accueil</NavLinks>
+        <NavLinks to="/about">A propos</NavLinks>
       </div>
     </NavContainer>
   )

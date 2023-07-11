@@ -12,11 +12,6 @@ export const StyledLink = styled(Link)`
   &:hover {
     text-decoration: underline;
   }
-  ${(props) =>
-    props.$isFullLink &&
-    `color: white; 
-    border-radius: 30px; 
-    background-color: ${colors.primary};`}
 `
 
 export const Banner = styled.img`
