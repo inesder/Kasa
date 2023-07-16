@@ -37,26 +37,30 @@ const CollapseContent = styled.div`
     `}
 `
 
-
-
 const ArrowImage = styled.img``
 
 const Collapse = ({ title, children }) => {
+  // Utilisation du hook useState pour gérer l'état ouvert/fermé
   const [isOpen, setIsOpen] = useState(false)
 
+  // Définition de la fonction pour basculer entre ouvert et fermé
   const handleToggle = () => {
     setIsOpen(!isOpen)
   }
 
   return (
     <div>
+      {/* Bouton pour déclencher l'ouverture/fermeture */}
+
       <CollapseButton active={isOpen} onClick={handleToggle}>
         <span>{title}</span>
+        {/* Image de la flèche, change selon l'état ouvert/fermé */}
         <ArrowImage
           src={isOpen ? UpArrow : BottomArrow}
           alt="Toggle collapse"
         />
       </CollapseButton>
+      {/* Le contenu du collapse, affiché seulement si isOpen est vrai */}
       <CollapseContent active={isOpen}>{children}</CollapseContent>
     </div>
   )

@@ -51,13 +51,16 @@ const CarouselCounter = styled.div`
 `
 
 function Carousel({ images }) {
+  // Utilisation du hook useState pour gérer l'image actuelle affichée
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
+  // Définition de la fonction pour aller à l'image précédente
   const handlePrevious = () => {
     const newIndex = currentImageIndex - 1
     setCurrentImageIndex(newIndex < 0 ? images.length - 1 : newIndex)
   }
 
+    // Définition de la fonction pour aller à l'image suivante
   const handleNext = () => {
     const newIndex = currentImageIndex + 1
     setCurrentImageIndex(newIndex >= images.length ? 0 : newIndex)
@@ -65,6 +68,7 @@ function Carousel({ images }) {
 
   return (
     <CarouselContainer>
+      {/* Bouton pour aller à l'image précédente */}
       <PreviousButton onClick={handlePrevious}>
         <ArrowImg src={PreviousImage} alt="Previous" />
       </PreviousButton>
@@ -73,9 +77,11 @@ function Carousel({ images }) {
         src={images[currentImageIndex]}
         alt={`Apartment interior ${currentImageIndex}`}
       />
+      {/* Bouton pour aller à l'image suivante */}
       <NextButton onClick={handleNext}>
         <ArrowImg src={NextImage} alt="Next" />
       </NextButton>
+      {/* Le compteur de position de l'image actuelle */}
       <CarouselCounter>{`${currentImageIndex + 1}/${
         images.length
       }`}</CarouselCounter>
