@@ -18,20 +18,28 @@ function Star({ filled }) {
 }
 
 function StarRating({ rating }) {
+
+  //Determiner le nombre d'étoiles pleines à afficher et arrondit la valeur de rating
   const fullStars = Math.floor(rating)
 
+  //Creation du tableau star
   const stars = []
 
+   // Nous remplissons le tableau `stars` avec le nombre correct d'étoiles pleines.
   for (let i = 0; i < fullStars; i++) {
     stars.push(<Star key={`star-full-${i}`} filled />)
   }
 
-  const remainingStars = 5 - fullStars
 
+  // Calcul du nombre d'étoiles vides à afficher.
+  const remainingStars = 5 - fullStars
+  
+  // Ajout le nombre correct d'étoiles vides au tableau `stars`.
   for (let i = 0; i < remainingStars; i++) {
     stars.push(<Star key={`star-empty-${i}`} />)
   }
 
+  // Retour de la div contenant toutes les étoiles.
   return <div>{stars}</div>
 }
 
