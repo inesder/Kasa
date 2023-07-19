@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { FaStar } from 'react-icons/fa'
 
 const StarIcon = styled.div`
-  color: ${(props) => (props.filled ? '#FF6060' : '#F6F6F6')};
+  color: ${(props) => (props.$filled === 'true' ? '#FF6060' : '#F6F6F6')};
   padding: 5px;
   border-radius: 50%;
   display: inline-flex;
@@ -11,7 +11,7 @@ const StarIcon = styled.div`
 
 function Star({ filled }) {
   return (
-    <StarIcon filled={filled}>
+    <StarIcon $filled={filled ? 'true' : 'false'}>
       <FaStar />
     </StarIcon>
   )
@@ -27,7 +27,7 @@ function StarRating({ rating }) {
 
    // Nous remplissons le tableau `stars` avec le nombre correct d'étoiles pleines.
   for (let i = 0; i < fullStars; i++) {
-    stars.push(<Star key={`star-full-${i}`} filled />)
+    stars.push(<Star key={`star-full-${i}`} filled="true" />)
   }
 
 

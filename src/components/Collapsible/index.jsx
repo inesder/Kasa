@@ -1,10 +1,12 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { useState } from 'react'
 import colors from '../../utils/style/colors'
 import BottomArrow from '../../assets/bottom.png'
 import UpArrow from '../../assets/top.png'
 
-const CollapseButton = styled.button`
+const CollapseButton = styled.button.attrs((props) => ({
+  $active: props.active ? props.active.toString() : undefined,
+}))`
   background-color: ${colors.primary};
   justify-content: space-between;
   align-items: center;
@@ -19,23 +21,22 @@ const CollapseButton = styled.button`
   border-radius: 10px;
   display: flex;
   font-weight: 500;
-`
+`;
 
 const CollapseContent = styled.div`
-  display: none;
+  
+  overflow: hidden;
+  transition: max-height 0.3s ease;
   background-color: #f9f9f9;
   padding: 18px;
   border-radius: 0 0 10px 10px;
   color: ${colors.primary};
   font-size: 18px;
   line-height: 1.3;
-
-  ${({ active }) =>
-    active &&
-    css`
-      display: block;
-    `}
-`
+  &.active {
+    max-height: 1000px;
+  }
+`;
 
 const ArrowImage = styled.img``
 
@@ -52,7 +53,7 @@ const Collapse = ({ title, children }) => {
     <div>
       {/* Bouton pour déclencher l'ouverture/fermeture */}
 
-      <CollapseButton active={isOpen} onClick={handleToggle}>
+      <CollapseButton $active={isOpen}  onClick={handleToggle}>
         <span>{title}</span>
         {/* Image de la flèche, change selon l'état ouvert/fermé */}
         <ArrowImage
@@ -61,7 +62,8 @@ const Collapse = ({ title, children }) => {
         />
       </CollapseButton>
       {/* Le contenu du collapse, affiché seulement si isOpen est vrai */}
-      <CollapseContent active={isOpen}>{children}</CollapseContent>
+      {isOpen && <CollapseContent className={isOpen ? 'active' : ''}>{children}</CollapseContent>
+}
     </div>
   )
 }

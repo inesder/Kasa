@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/'
 import AboutPage from './pages/AboutPage'
@@ -10,8 +10,8 @@ import Footer from './components/Footer'
 import { createGlobalStyle } from 'styled-components'
 import styled from 'styled-components'
 
+
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
     * {
       font-family: 'Montserrat', Helvetica, sans-serif;
     }
@@ -30,7 +30,8 @@ const MainContainer = styled.div`
 
 `
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
     <Router>
       <GlobalStyle />
@@ -47,5 +48,4 @@ ReactDOM.render(
       <Footer />
     </Router>
   </React.StrictMode>,
-  document.getElementById('root')
 )

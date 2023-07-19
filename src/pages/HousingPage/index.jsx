@@ -131,8 +131,8 @@ function HousingPage() {
           <StyledTitle>{title}</StyledTitle>
           <StyledLocation>{location}</StyledLocation>
           <StyledTagContainer>
-            {tags.map((tag) => (
-              <Tag tag={tag} />
+            {tags.map((tag, index) => (
+              <Tag key={index} tag={tag} />
             ))}
           </StyledTagContainer>
         </div>
@@ -155,8 +155,8 @@ function HousingPage() {
         <CollapseMenu>
           <Collapsible title="Equipements">
             <CollapseMenu>
-              {equipments.map((equipment) => (
-                <StyledEquipment>{equipment}</StyledEquipment>
+              {equipments.map((equipment, index) => (
+                <StyledEquipment key={index}>{equipment}</StyledEquipment>
               ))}
             </CollapseMenu>
           </Collapsible>
