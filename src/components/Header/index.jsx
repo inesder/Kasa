@@ -19,6 +19,7 @@ const NavContainer = styled.nav`
 `
 
 const NavLinks = styled(StyledLink)`
+  padding-left: 40px;
   @media screen and (max-width: 768px) {
     font-size: 17px;
   }

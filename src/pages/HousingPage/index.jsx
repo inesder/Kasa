@@ -34,7 +34,7 @@ const StyledTitle = styled.h2`
 `
 
 const StyledLocation = styled.p`
-  color: ${colors.primary};
+  color: black;
   font-size: 18px;
 `
 

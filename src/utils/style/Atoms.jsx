@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import colors from './colors'
 
 export const StyledLink = styled(Link)`
   padding: 10px 15px;
-  color: ${colors.primary};
+  color: black;
   text-decoration: none;
   font-size: 24px;
   font-weight: 500;
@@ -19,6 +18,6 @@ export const Banner = styled.img`
   width: 100%;
   height: 223px;
   border-radius: 25px;
-  filter: brightness(0.7);
+  filter: brightness(0.5);
   
 `

@@ -9,34 +9,38 @@ const CollapseContainer = styled.div`
   gap: 20px;
   margin-top: 30px;
 `
+const StyledCollapseTitle = styled.span`
+font-weight: 700;
+font-size: 24px;
+`
 
 function AboutPage() {
   return (
     <div>
       <Banner src={about_banner} />
       <CollapseContainer>
-        <Collapsible title="Fiabilité">
+        <Collapsible title={<StyledCollapseTitle>Fiabilité</StyledCollapseTitle>}>
           <p>
             Les annonces postées sur Kasa garantissent une fiabilité totale. Les
             photos sont conformes aux logements, et toutes les informations sont
             régulièrement vérifiées par nos équipes.
           </p>
         </Collapsible>
-        <Collapsible title="Respect">
+        <Collapsible title={<StyledCollapseTitle>Respect</StyledCollapseTitle>}>
           <p>
             La bienveillance fait partie des valeurs fondatrices de Kasa. Tout
             comportement discriminatoire ou de perturbation du voisinage
             entraînera une exclusion de notre plateforme.
           </p>
         </Collapsible>
-        <Collapsible title="Service">
+        <Collapsible title={<StyledCollapseTitle>Service</StyledCollapseTitle>}>
           <p>
             Nos équipes se tiennent à votre disposition pour vous fournir une
             expérience parfaite. N'hésitez pas à nous contacter si vous avez la
             moindre question.
           </p>
         </Collapsible>
-        <Collapsible title="Sécurité">
+        <Collapsible title={<StyledCollapseTitle>Sécurité</StyledCollapseTitle>}>
           <p>
             La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que
             pour les voyageurs, chaque logement correspond aux critères de

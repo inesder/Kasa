@@ -17,7 +17,8 @@ const StyledTitle = styled.h1`
   color: white;
   font-size: 48px;
   text-align: center;
-  font-weight: 500;
+  font-weight: 700;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   @media screen and (max-width: 768px) {
     text-align: left;
     left:33%;

@@ -30,7 +30,7 @@ const CollapseContent = styled.div`
   background-color: #f9f9f9;
   padding: 18px;
   border-radius: 0 0 10px 10px;
-  color: ${colors.primary};
+  color: black;
   font-size: 18px;
   line-height: 1.3;
   &.active {

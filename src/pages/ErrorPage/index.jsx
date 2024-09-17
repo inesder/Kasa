@@ -21,6 +21,7 @@ const ErrorTitle = styled.h2`
 `
 
 const ErrorMessage = styled.p`
+  font-weight: 500;
   font-size: 36px;
   margin-bottom: 180px;
   @media screen and (max-width: 768px) {
@@ -37,7 +38,7 @@ function ErrorPage() {
       <ErrorTitle>404</ErrorTitle>
       <ErrorMessage>Oups! La page que vous demandez n'existe pas.</ErrorMessage>
 
-      <StyledLink to={'/'}> Retourner à la page d'accueil </StyledLink>
+      <StyledLink to={'/'}> Retourner sur la page d'accueil </StyledLink>
     </ErrorContainer>
   )
 }
